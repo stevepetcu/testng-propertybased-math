@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  java:
+    build:
+      context: ./docker/java
+    volumes:
+      - ./:/usr/src/testng-propertybased-math
+    working_dir: /usr/src/testng-propertybased-math
+    entrypoint: ./docker/java/scripts/entrypoint.sh
+
+  maven:
+      build:
+        context: ./docker/maven
+      volumes:
+        - ./:/usr/src/testng-propertybased-math
+      working_dir: /usr/src/testng-propertybased-math
+      entrypoint: ./docker/maven/scripts/entrypoint.sh
