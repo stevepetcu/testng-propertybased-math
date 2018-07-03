@@ -1,5 +1,8 @@
 .DEFAULT_GOAL := run
-.PHONY: package run
+.PHONY: test package run
+
+test:
+	docker-compose exec maven mvn test
 
 package:
 	docker-compose exec maven mvn package
